@@ -1,11 +1,11 @@
 package EmployeePayrollService;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePayrollIOServices {
@@ -40,5 +40,23 @@ public class EmployeePayrollIOServices {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> readDataFromFile() {
+        List<String> employeePayrollList = new ArrayList<String>();
+
+        try {
+            Files.lines(new File("payroll.txt").toPath())
+                    .map(employee -> employee.trim())
+                    .forEach(employee -> {
+                        System.out.println(employee);
+                        employeePayrollList.add(employee);
+                    });
+
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return employeePayrollList;
     }
 }
