@@ -31,6 +31,7 @@ public class EmployeePayrollService {
         employeePayrollService.writeEmpPayrollData(IOServices.FILE_IO);
         employeePayrollService.ioServicesCount(IOServices.FILE_IO);
         System.out.println(employeePayrollService.ioServicesCount(IOServices.FILE_IO));
+        employeePayrollService.printPayroll(IOServices.FILE_IO);
 
     }
 
